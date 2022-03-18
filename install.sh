@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 echo "Installando dipendenze"
-sudo apt install git raspberrypi-kernel-headers build-essential dkms -y
+sudo apt install util-linux procps hostapd iproute2 iw dnsmasq iptables git raspberrypi-kernel-headers build-essential dkms -y
 sudo echo # pre-authorise sudo
 echo "Clonando driver"
 git clone https://github.com/fragarray/rtl8192eu-linux-driver-rasp.git
@@ -15,3 +15,7 @@ echo -e "8192eu\n\nloop" | sudo tee /etc/modules
 echo "options 8192eu rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/8192eu.conf
 echo "UPDATE INITRAMS"
 sudo update-initramfs -u
+echo "Installo AP"
+git clone https://github.com/oblique/create_ap
+cd create_ap
+sudo make install
