@@ -11,7 +11,7 @@ echo "Installando dkms"
 sudo dkms install rtl8192eu/1.0
 echo "DKMS compilato ed installato"
 echo "Operazioni finali"
-echo -e "8192eu\n\nloop" | sudo tee /etc/modules
-echo "options 8192eu rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/8192eu.conf
+echo -e "rtl8821ce\n\nloop" | sudo tee /etc/modules
+#echo "options 8821ce rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/8192eu.conf
 echo "UPDATE INITRAMS"
 sudo update-initramfs -u
